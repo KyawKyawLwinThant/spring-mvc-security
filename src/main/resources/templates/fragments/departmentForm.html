@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<form action="#" th:fragment="departmentForm"
+      method="post" th:action="@{/departments/create}" th:object="${department}">
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="code">Code</label>
+            <input type="text" class="form-control" id="code" th:field="*{code}"
+            th:classappend="${#fields.hasErrors('code')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{code}"></div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}"
+                   th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{name}"></div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" th:field="*{country}"
+                   th:classappend="${#fields.hasErrors('country')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{country}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <a href="#" th:href="@{/departments}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

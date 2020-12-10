@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<form action="#" th:fragment="employeeForm" method="post" th:action="@{/employees/create}" th:object="${employee}">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}"
+            th:classappend="${#fields.hasErrors('firstName')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{firstName}"></div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}"
+                   th:classappend="${#fields.hasErrors('lastName')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{lastName}"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" th:field="*{address}"
+        th:classappend="${#fields.hasErrors('address')} ? 'is-invalid'">
+        <div class="invalid-feedback" th:errors="*{address}"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}"
+                   th:classappend="${#fields.hasErrors('phoneNumber')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{phoneNumber}"></div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="cubicleNo">Cubicle No</label>
+            <input type="text" class="form-control" id="cubicleNo" th:field="*{cubicleNo}"
+                   th:classappend="${#fields.hasErrors('cubicleNo')} ? 'is-invalid'">
+            <div class="invalid-feedback" th:errors="*{cubicleNo}"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1">
+            <a href="#" th:href="@{/employees}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-block" type="submit">Add</button>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+    <table th:fragment="departmentsTable" class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="department : ${departments}">
+            <td th:text="${department.id}"></td>
+            <td th:text="${department.code}"></td>
+            <td th:text="${department.name}"></td>
+            <td th:text="${department.country}"></td>
+            <td>
+                <a href="#" th:href="@{'/departments/delete/'+${department.id}}" type="button" class="btn btn-outline-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

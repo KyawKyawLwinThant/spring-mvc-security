@@ -33,6 +33,7 @@ public class DepartmentsController {
     public ModelAndView create(){
         return new ModelAndView("department-create","department",new Department());
     }
+
     @IsDepartmentCreate
     @PostMapping("/departments/create")
     public String create(@ModelAttribute @Valid Department department, BindingResult bindingResult){
